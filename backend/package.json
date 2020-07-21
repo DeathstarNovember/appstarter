@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "test": "test",
+    "generate": "graphql-codegen",
+    "start": "postgraphile -o -c postgres:///backend --enhance-graphiql",
+    "migratedb": "npx sequelize-cli db:migrate",
+    "resetdb": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.7",
+    "@types/sequelize": "^4.28.9",
+    "apollo-server": "^2.16.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "graphql": "^15.3.0",
+    "pg": "^8.3.0",
+    "postgraphile": "^4.7.0",
+    "sequelize": "^6.3.3",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.7"
+  }
+}

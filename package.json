@@ -1,0 +1,30 @@
+{
+  "name": "appstarter",
+  "version": "1.0.0",
+  "description": "Node, Express, Apollo, Graphql, Postgres, React, Typescript, Monorepo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:frontend": "cd web && yarn start",
+    "start:backend": "cd backend && yarn start",
+    "install:frontend": "cd web && yarn",
+    "install:backend": "cd backend && yarn",
+    "install:all": "(yarn install:backend) & (yarn install:frontend)",
+    "setup:db": "cd backend && createdb backend",
+    "setup:db:migrate": "cd backend && npx sequelize-cli db:migrate",
+    "setup:backend": "(yarn setup:db) && npx sequelize-cli db:migrate",
+    "setup:backend:seed": "cd backend && npx sequelize-cli db:seed:all",
+    "generate": "graphql-codegen --config ./codegen.js",
+    "generate:frontend": "cd web && yarn generate",
+    "setup:frontend": "(yarn start:backend) && (yarn generate:frontend)",
+    "setup:all": "(yarn setup:backend) & (yarn setup:frontend)",
+    "setup": "yarn setup:all",
+    "start:generate": "(yarn start:backend) & (yarn generate:frontend && yarn start )",
+    "start:generate:watch": "(yarn start:backend) & (yarn generate:frontend --watch && yarn start )",
+    "start:all": "(yarn start:backend) & (yarn start:frontend)",
+    "start": "yarn start:all"
+  },
+  "author": "DeathstarNovember",
+  "license": "MIT",
+  "dependencies": {}
+}
