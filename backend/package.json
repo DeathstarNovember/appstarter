@@ -18,7 +18,7 @@
     "@types/sequelize": "^4.28.9",
     "apollo-server": "^2.25.3",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "graphql": "^15.3.0",
     "pg": "^8.3.0",
     "postgraphile": "^4.7.0",
